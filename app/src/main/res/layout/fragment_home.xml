@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/home_header"
+        android:textColor="@color/pink"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/upcoming_events"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <!-- The list of events -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvEvents"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <!-- Spinner while loading -->
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone" />
+
+        <!-- Message and button when something went wrong -->
+        <LinearLayout
+            android:id="@+id/errorLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tvError"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnRetry"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/btn_gradient"
+                android:paddingStart="32dp"
+                android:paddingEnd="32dp"
+                android:text="@string/try_again"
+                android:textColor="@color/white" />
+        </LinearLayout>
+    </FrameLayout>
+</LinearLayout>

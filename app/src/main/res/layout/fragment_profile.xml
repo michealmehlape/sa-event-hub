@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/nav_profile"
+        android:textColor="@color/white"
+        android:textSize="28sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:textColor="@color/white"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/tvEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textColor="@color/text_grey"
+        android:textSize="16sp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSettings"
+        style="@style/Widget.Material3.Button.OutlinedButton"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginTop="48dp"
+        android:text="@string/settings_button"
+        android:textColor="@color/white" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnLogout"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/btn_gradient"
+        android:text="@string/log_out"
+        android:textColor="@color/white"
+        android:textStyle="bold" />
+
+</LinearLayout>

@@ -1,0 +1,77 @@
+<resources>
+    <string name="app_name">SA Event Hub</string>
+    <string name="tagline">Discover. Connect. Experience.</string>
+    <string name="welcome_message">Discover events around South Africa</string>
+    <string name="get_started">Get Started</string>
+
+    <string name="login_title">Welcome back!</string>
+    <string name="login_subtitle">Log in to continue discovering events.</string>
+    <string name="log_in">Log In</string>
+    <string name="go_to_register">Don\'t have an account? Sign up</string>
+
+    <string name="register_title">Create your account</string>
+    <string name="register_subtitle">Join SA Event Hub and never miss an event.</string>
+    <string name="create_account">Create Account</string>
+    <string name="go_to_login">Already have an account? Log in</string>
+
+    <string name="full_name">Full name</string>
+    <string name="email">Email address</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm password</string>
+
+    <string name="log_out">Log Out</string>
+
+    <string name="nav_home">Home</string>
+    <string name="nav_search">Search</string>
+    <string name="nav_saved">Saved</string>
+    <string name="nav_community">Community</string>
+    <string name="nav_profile">Profile</string>
+    <string name="coming_soon">This screen is coming soon.</string>
+
+    <string name="settings_button">Settings</string>
+    <string name="settings_title">Settings</string>
+    <string name="back">&#8592; Back</string>
+
+    <string name="section_name">Your name</string>
+    <string name="save_name">Save name</string>
+
+    <string name="section_notifications">Notifications</string>
+    <string name="notifications_switch">Push notifications</string>
+
+    <string name="section_interests">Event interests</string>
+    <string name="interest_music">Music</string>
+    <string name="interest_sports">Sports</string>
+    <string name="interest_arts">Arts &amp; Culture</string>
+    <string name="interest_comedy">Comedy</string>
+    <string name="interest_business">Business</string>
+    <string name="save_interests">Save interests</string>
+
+    <string name="section_password">Change password</string>
+    <string name="current_password">Current password</string>
+    <string name="new_password">New password</string>
+    <string name="confirm_new_password">Confirm new password</string>
+    <string name="change_password">Change password</string>
+
+    <string name="home_header">SA EVENT HUB</string>
+    <string name="upcoming_events">Upcoming events</string>
+    <string name="try_again">Try again</string>
+
+    <string name="save_event">Save Event</string>
+    <string name="saved">Saved ✓</string>
+    <string name="get_tickets">Get Tickets</string>
+    <string name="no_description">No description available.</string>
+    <string name="no_saved_events">You have not saved any events yet.</string>
+    <string name="no_ticket_link">No ticket link available.</string>
+
+    <string name="search_hint">Search events, artists, venues…</string>
+    <string name="filter_all">All</string>
+    <string name="filter_city">City</string>
+    <string name="any_city">Any city</string>
+    <string name="no_results">No events found. Try different filters.</string>
+
+    <string name="write_a_post">Share something with the community…</string>
+    <string name="post_button">Post</string>
+    <string name="no_posts">No posts yet. Be the first to share something.</string>
+    <string name="write_a_comment">Write a comment…</string>
+    <string name="no_comments">No comments yet.</string>
+</resources>
