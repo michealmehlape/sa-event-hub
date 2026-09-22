@@ -36,7 +36,7 @@ requires the paid Firebase Blaze plan, so the backend was rebuilt as a PHP
 REST API on existing Afrihost hosting, using Firebase Realtime Database
 instead of Firestore. Firebase Authentication was kept unchanged.
 
-## API reference
+## API reference 
 
 | Method | Endpoint | Auth | Description |
 |---|---|---|---|
