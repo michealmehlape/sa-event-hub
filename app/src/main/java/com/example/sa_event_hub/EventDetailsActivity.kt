@@ -36,7 +36,7 @@ class EventDetailsActivity : AppCompatActivity() {
 
         binding.tvBack.setOnClickListener { finish() }
 
-        // WATCH the ViewModel
+
 
         viewModel.isLoading.observe(this) { loading ->
             binding.progressBar.visibility = if (loading) View.VISIBLE else View.GONE

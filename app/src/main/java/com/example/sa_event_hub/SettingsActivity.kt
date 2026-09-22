@@ -10,8 +10,7 @@ import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserProfileChangeRequest
 
-// The Settings screen. The user can change their name, password,
-// notification choice and event interests.
+// The Settings screen. The user can change their name, password, notification choice and event interests.
 class SettingsActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySettingsBinding
@@ -25,7 +24,7 @@ class SettingsActivity : AppCompatActivity() {
 
         prefs = getSharedPreferences("settings", MODE_PRIVATE)
 
-        // Show the saved settings on the screen
+        // Shows the saved settings on the screen
         loadSettings()
 
         // BUTTONS

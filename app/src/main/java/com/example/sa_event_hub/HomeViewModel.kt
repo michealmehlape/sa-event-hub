@@ -19,8 +19,8 @@ class HomeViewModel : ViewModel() {
         isLoading.value = true
         errorMessage.value = null
 
-        // Ask our API for the first 30 events (no city or category filter)
-        ApiClient.service.getEvents(null, null, 0, 30)
+        // Ask our API for the first 40 events (no city or category filter)
+        ApiClient.service.getEvents(null, null, 0, 40)
             .enqueue(object : Callback<EventListResponse> {
 
                 // The API answered

@@ -1,6 +1,6 @@
 package com.example.sa_event_hub
 
-// One event. The names match the JSON that your API sends.
+// One event. The names match the JSON that the API sends.
 data class Event(
     val id: String,
     val title: String,
@@ -26,7 +26,7 @@ data class EventListResponse(
 // What we send when saving an event
 data class FavouriteRequest(val eventId: String)
 
-// The answer to "give me my saved events"
+// gets saved events
 data class FavouriteListResponse(val favourites: List<Event>)
 
 // A simple answer with just a message, like {"message": "Removed."}

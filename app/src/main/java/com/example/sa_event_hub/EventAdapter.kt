@@ -6,15 +6,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.sa_event_hub.databinding.ItemEventBinding
 
-// Shows a list of events. The same adapter is used on Home, Search and Saved.
-// onEventClick runs when the user taps an event.
+// Shows a list of events.
+
 class EventAdapter(
     private val onEventClick: (Event) -> Unit
 ) : RecyclerView.Adapter<EventAdapter.EventViewHolder>() {
 
     private var events: List<Event> = emptyList()
 
-    // Gives the adapter a new list and redraws
+    // Gives the adapter a new list
     fun setEvents(newEvents: List<Event>) {
         events = newEvents
         notifyDataSetChanged()

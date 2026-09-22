@@ -12,7 +12,7 @@ class AuthViewModel : ViewModel() {
 
     private val auth = FirebaseAuth.getInstance()
 
-    // The screen watches these three values
+
     val isLoading = MutableLiveData(false)            // true while we wait for Firebase
     val errorMessage = MutableLiveData<String?>(null) // text to show if something goes wrong
     val isLoggedIn = MutableLiveData(false)           // becomes true when login/register works
@@ -44,14 +44,14 @@ class AuthViewModel : ViewModel() {
 
     // REGISTER
     fun register(name: String, email: String, password: String, confirm: String) {
-        // 1. Check what the user typed
+        // Check what the user typed
         val problem = Validators.checkRegister(name, email, password, confirm)
         if (problem != null) {
             errorMessage.value = problem
             return
         }
 
-        // 2. Ask Firebase to create the account
+        // Ask Firebase to create the account
         isLoading.value = true
         errorMessage.value = null
         auth.createUserWithEmailAndPassword(email.trim(), password)

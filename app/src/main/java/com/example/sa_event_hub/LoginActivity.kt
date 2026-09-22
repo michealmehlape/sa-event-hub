@@ -19,7 +19,7 @@ class LoginActivity : AppCompatActivity() {
 
         viewModel = ViewModelProvider(this)[AuthViewModel::class.java]
 
-        // WATCH the ViewModel. When a value changes, update the screen.
+        // Wthches the ViewModel. When a value changes, update the screen.
 
         // Show the spinner and turn off the button while loading
         viewModel.isLoading.observe(this) { loading ->

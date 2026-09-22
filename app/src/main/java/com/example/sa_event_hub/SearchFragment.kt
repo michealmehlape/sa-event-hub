@@ -17,7 +17,7 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
     private lateinit var viewModel: SearchViewModel
     private lateinit var adapter: EventAdapter
 
-    // What we show the user for each city, and what we send to the API for it.
+    // What we show the user for each city, and what we send to the API.
     // "Any city" sends null, meaning "no city filter".
     private val cityLabels = listOf("Any city", "Johannesburg", "Cape Town", "Pretoria", "Durban")
     private val cityValues = listOf(null, "Johannesburg", "Cape Town", "Pretoria", "Durban")
@@ -26,8 +26,7 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentSearchBinding.bind(view)
 
-        // We use our own ViewModel here (not shared), because Search
-        // keeps its own filters separate from Home's list.
+        // We use our own ViewModel here (not shared), because Search keeps its own filters separate from Home's list.
         viewModel = ViewModelProvider(this)[SearchViewModel::class.java]
 
         setUpList()

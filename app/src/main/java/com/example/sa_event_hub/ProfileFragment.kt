@@ -32,7 +32,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
     }
 
     // onResume runs every time this screen comes back into view
-    // (for example after the user closes Settings), so the name stays up to date.
+
     override fun onResume() {
         super.onResume()
         showUserInfo()
