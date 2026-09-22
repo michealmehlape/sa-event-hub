@@ -66,5 +66,5 @@ runs them automatically on every push (see badge and workflow below).
 ## Demo video
 
 
-* https://youtu.be/0XLpRf72R6Q *
+* https://youtu.be/gCHEOXtgLas?si=ukdAPbnZv6eveaa6 *
 
