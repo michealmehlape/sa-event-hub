@@ -74,4 +74,8 @@
     <string name="no_posts">No posts yet. Be the first to share something.</string>
     <string name="write_a_comment">Write a comment…</string>
     <string name="no_comments">No comments yet.</string>
+
+
+    <string name="language_row">English  •  Afrikaans  •  isiZulu</string>
+
 </resources>
