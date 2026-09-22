@@ -21,18 +21,16 @@ jobs:
           distribution: 'temurin'
 
       - name: Grant execute permission for gradlew
-        run: chmod +x sa_event_hub/gradlew
+        run: chmod +x gradlew
 
       - name: Run unit tests
-        working-directory: sa_event_hub
         run: ./gradlew test
 
       - name: Build debug APK
-        working-directory: sa_event_hub
         run: ./gradlew assembleDebug
 
       - name: Upload the APK
         uses: actions/upload-artifact@v4
         with:
           name: app-debug
-          path: sa_event_hub/app/build/outputs/apk/debug/app-debug.apk
+          path: app/build/outputs/apk/debug/app-debug.apk
