@@ -75,6 +75,10 @@
     <string name="write_a_comment">Write a comment…</string>
     <string name="no_comments">No comments yet.</string>
 
+    <string name="continue_with_google">Continue with Google</string>
+    <string name="or_divider">or</string>
+    <string name="google_sign_in_failed">Google sign-in failed. Please try again.</string>
+
 
     <string name="language_row">English  •  Afrikaans  •  isiZulu</string>
 

@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserProfileChangeRequest
+import com.google.firebase.auth.GoogleAuthProvider
 
 // This class does the login and register work using Firebase.
 // Firebase keeps the password safe (encrypted), so we never store it ourselves.
@@ -77,5 +78,28 @@ class AuthViewModel : ViewModel() {
             isLoading.value = false
             isLoggedIn.value = true // Firebase logs the new user in automatically
         }
+    }
+
+    // GOOGLE SIGN-IN: exchanges the Google ID token for a Firebase login
+    fun signInWithGoogle(idToken: String) {
+        isLoading.value = true
+        errorMessage.value = null
+        val credential = GoogleAuthProvider.getCredential(idToken, null)
+        auth.signInWithCredential(credential)
+            .addOnCompleteListener { task ->
+                isLoading.value = false
+                if (task.isSuccessful) {
+                    Log.d("AuthViewModel", "Google sign-in worked")
+                    isLoggedIn.value = true
+                } else {
+                    Log.w("AuthViewModel", "Google sign-in failed", task.exception)
+                    errorMessage.value = "Google sign-in failed. Please try again."
+                }
+            }
+    }
+
+    // Lets the screen report an error from the Google popup
+    fun showError(message: String) {
+        errorMessage.value = message
     }
 }

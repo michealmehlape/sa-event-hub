@@ -57,7 +57,10 @@ dependencies {
     implementation(libs.navigation.fragment)
     implementation(libs.navigation.ui)
     implementation(libs.glide)
-
+    implementation(libs.androidx.credentials)
+    implementation(libs.androidx.credentials.play)
+    implementation(libs.googleid)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
 }
 
 // Some library asked for a newer androidx.core than our project supports.

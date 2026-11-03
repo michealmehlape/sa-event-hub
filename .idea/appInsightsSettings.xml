@@ -8,8 +8,8 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="com.example.sa_event_hub" />
-                  <option name="mobileSdkAppId" value="1:309050586592:android:4551bb516772d6423ea785" />
+                  <option name="appId" value="com.cybersquad.saeventhub" />
+                  <option name="mobileSdkAppId" value="1:309050586592:android:85b37c60a0ca6a853ea785" />
                   <option name="projectId" value="sa-event-hub" />
                   <option name="projectNumber" value="309050586592" />
                 </ConnectionSetting>
