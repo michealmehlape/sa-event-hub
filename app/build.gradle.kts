@@ -15,7 +15,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.example.sa_event_hub"
+        applicationId = "com.cybersquad.saeventhub"
         minSdk = 26
         targetSdk = 36
         versionCode = 1
