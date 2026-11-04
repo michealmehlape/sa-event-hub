@@ -116,4 +116,5 @@
     <string name="toast_wrong_current_password">Jou huidige wagwoord is verkeerd.</string>
     <string name="toast_password_changed">Wagwoord verander.</string>
     <string name="toast_password_failed">Kon nie die wagwoord verander nie.</string>
+    <string name="date_at_time">%1$s om %2$s</string>
 </resources>

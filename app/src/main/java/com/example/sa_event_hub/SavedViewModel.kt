@@ -12,7 +12,7 @@ class SavedViewModel : ViewModel() {
 
     val favourites = MutableLiveData<List<Event>>(emptyList())
     val isLoading = MutableLiveData(false)
-    val errorMessage = MutableLiveData<String?>(null)
+    val errorMessage = MutableLiveData<UiText?>(null)
 
     fun loadFavourites() {
         isLoading.value = true
@@ -25,16 +25,16 @@ class SavedViewModel : ViewModel() {
 
                 if (response.isSuccessful && list != null) {
                     favourites.value = list
-                    errorMessage.value = if (list.isEmpty()) "You have not saved any events yet." else null
+                    errorMessage.value = if (list.isEmpty()) UiText(R.string.no_saved_events) else null
                 } else {
-                    errorMessage.value = "Could not load your saved events (error ${response.code()})."
+                    errorMessage.value = UiText(R.string.err_load_saved, response.code())
                 }
             }
 
             override fun onFailure(call: Call<FavouriteListResponse>, t: Throwable) {
                 isLoading.value = false
                 Log.w("SavedViewModel", "Could not reach the API", t)
-                errorMessage.value = "No internet connection."
+                errorMessage.value = UiText(R.string.err_no_internet_retry)
             }
         })
     }

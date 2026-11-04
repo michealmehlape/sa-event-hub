@@ -19,7 +19,7 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
 
     // What we show the user for each city, and what we send to the API.
     // "Any city" sends null, meaning "no city filter".
-    private val cityLabels = listOf("Any city", "Johannesburg", "Cape Town", "Pretoria", "Durban")
+    //private val cityLabels = listOf("Any city", "Johannesburg", "Cape Town", "Pretoria", "Durban")
     private val cityValues = listOf(null, "Johannesburg", "Cape Town", "Pretoria", "Durban")
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -79,6 +79,7 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
     }
 
     private fun setUpCityDropdown() {
+        val cityLabels = listOf(getString(R.string.any_city), "Johannesburg", "Cape Town", "Pretoria", "Durban")
         val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, cityLabels)
         binding.spinnerCity.setAdapter(adapter)
         binding.spinnerCity.setText(cityLabels[0], false)   // start on "Any city"
@@ -98,7 +99,7 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
         }
 
         viewModel.errorMessage.observe(viewLifecycleOwner) { message ->
-            binding.tvEmpty.text = message
+            binding.tvEmpty.text = message?.asString(requireContext())
             binding.tvEmpty.visibility = if (message != null) View.VISIBLE else View.GONE
         }
     }

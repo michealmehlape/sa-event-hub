@@ -38,7 +38,7 @@ class SavedFragment : Fragment(R.layout.fragment_saved) {
         }
 
         viewModel.errorMessage.observe(viewLifecycleOwner) { message ->
-            binding.tvEmpty.text = message
+            binding.tvEmpty.text = message?.asString(requireContext())
             binding.tvEmpty.visibility = if (message != null) View.VISIBLE else View.GONE
         }
     }

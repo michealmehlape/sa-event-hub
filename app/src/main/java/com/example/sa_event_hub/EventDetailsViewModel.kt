@@ -11,7 +11,7 @@ class EventDetailsViewModel : ViewModel() {
 
     val event = MutableLiveData<Event?>(null)
     val isLoading = MutableLiveData(false)
-    val errorMessage = MutableLiveData<String?>(null)
+    val errorMessage = MutableLiveData<UiText?>(null)
     val isSaved = MutableLiveData(false)
     private var working = false   // stops double-taps on the Save button
 
@@ -25,14 +25,14 @@ class EventDetailsViewModel : ViewModel() {
                     event.value = response.body()
                     checkIfSaved(eventId)
                 } else {
-                    errorMessage.value = "Could not load this event (error ${response.code()})."
+                    errorMessage.value = UiText(R.string.err_load_event, response.code())
                 }
             }
 
             override fun onFailure(call: Call<Event>, t: Throwable) {
                 isLoading.value = false
                 Log.w("EventDetailsViewModel", "Could not reach the API", t)
-                errorMessage.value = "No internet connection."
+                errorMessage.value = UiText(R.string.err_no_internet_retry)
             }
         })
     }
@@ -64,13 +64,13 @@ class EventDetailsViewModel : ViewModel() {
                     if (response.isSuccessful) {
                         isSaved.value = false
                     } else {
-                        errorMessage.value = "Could not remove this event."
+                        errorMessage.value = UiText(R.string.err_remove_event)
                     }
                 }
 
                 override fun onFailure(call: Call<MessageResponse>, t: Throwable) {
                     working = false
-                    errorMessage.value = "No internet connection."
+                    errorMessage.value = UiText(R.string.err_no_internet_retry)
                 }
             })
         } else {
@@ -81,13 +81,13 @@ class EventDetailsViewModel : ViewModel() {
                     if (response.isSuccessful || response.code() == 409) {
                         isSaved.value = true
                     } else {
-                        errorMessage.value = "Could not save this event."
+                        errorMessage.value = UiText(R.string.err_save_event)
                     }
                 }
 
                 override fun onFailure(call: Call<Event>, t: Throwable) {
                     working = false
-                    errorMessage.value = "No internet connection."
+                    errorMessage.value = UiText(R.string.err_no_internet_retry)
                 }
             })
         }

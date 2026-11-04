@@ -12,7 +12,7 @@ class CommunityViewModel : ViewModel() {
 
     val posts = MutableLiveData<List<Post>>(emptyList())
     val isLoading = MutableLiveData(false)
-    val errorMessage = MutableLiveData<String?>(null)
+    val errorMessage = MutableLiveData<UiText?>(null)
     val postCreated = MutableLiveData(false)
 
     fun loadPosts() {
@@ -26,16 +26,16 @@ class CommunityViewModel : ViewModel() {
 
                 if (response.isSuccessful && list != null) {
                     posts.value = list
-                    errorMessage.value = if (list.isEmpty()) "No posts yet. Be the first to share something." else null
+                    errorMessage.value = if (list.isEmpty()) UiText(R.string.no_posts) else null
                 } else {
-                    errorMessage.value = "Could not load posts (error ${response.code()})."
+                    errorMessage.value = UiText(R.string.err_load_posts, response.code())
                 }
             }
 
             override fun onFailure(call: Call<PostListResponse>, t: Throwable) {
                 isLoading.value = false
                 Log.w("CommunityViewModel", "Could not reach the API", t)
-                errorMessage.value = "No internet connection."
+                errorMessage.value = UiText(R.string.err_no_internet_retry)
             }
         })
     }
@@ -50,12 +50,12 @@ class CommunityViewModel : ViewModel() {
                     postCreated.value = true
                     loadPosts()
                 } else {
-                    errorMessage.value = "Could not create the post (error ${response.code()})."
+                    errorMessage.value = UiText(R.string.err_create_post, response.code())
                 }
             }
 
             override fun onFailure(call: Call<Post>, t: Throwable) {
-                errorMessage.value = "No internet connection."
+                errorMessage.value = UiText(R.string.err_no_internet_retry)
             }
         })
     }

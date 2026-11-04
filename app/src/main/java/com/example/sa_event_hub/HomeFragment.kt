@@ -48,7 +48,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             if (message == null) {
                 binding.errorLayout.visibility = View.GONE
             } else {
-                binding.tvError.text = message
+                binding.tvError.text = message.asString(requireContext())
                 binding.errorLayout.visibility = View.VISIBLE
             }
         }

@@ -49,7 +49,7 @@ class LoginActivity : AppCompatActivity() {
             if (message == null) {
                 binding.tvError.visibility = View.GONE
             } else {
-                binding.tvError.text = message
+                binding.tvError.text = message.asString(this)
                 binding.tvError.visibility = View.VISIBLE
             }
         }
@@ -101,13 +101,13 @@ class LoginActivity : AppCompatActivity() {
                     viewModel.signInWithGoogle(google.idToken)
                 } else {
                     Log.w("LoginActivity", "Unexpected credential type")
-                    viewModel.showError(getString(R.string.google_sign_in_failed))
+                    viewModel.showError(UiText(R.string.google_sign_in_failed))
                 }
             } catch (e: GetCredentialCancellationException) {
                 Log.d("LoginActivity", "User closed the Google picker")
             } catch (e: GetCredentialException) {
                 Log.w("LoginActivity", "Google sign-in error", e)
-                viewModel.showError(getString(R.string.google_sign_in_failed))
+                viewModel.showError(UiText(R.string.google_sign_in_failed))
             }
         }
     }

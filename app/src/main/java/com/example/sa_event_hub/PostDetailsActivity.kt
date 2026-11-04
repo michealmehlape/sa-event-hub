@@ -51,7 +51,7 @@ class PostDetailsActivity : AppCompatActivity() {
         }
 
         viewModel.errorMessage.observe(this) { message ->
-            binding.tvEmpty.text = message
+            binding.tvEmpty.text = message?.asString(this)
             binding.tvEmpty.visibility = if (message != null) View.VISIBLE else View.GONE
         }
 

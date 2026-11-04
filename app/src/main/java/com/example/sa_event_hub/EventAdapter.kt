@@ -36,7 +36,7 @@ class EventAdapter(
 
         views.tvCategory.text = (event.category ?: "").uppercase()
         views.tvTitle.text = event.title
-        views.tvDate.text = EventFormat.dateAndTime(event.date, event.time)
+        EventFormat.dateAndTime(views.root.context, event.date, event.time)
 
         // Show "Venue, City" (skip the empty parts)
         views.tvVenue.text = listOfNotNull(event.venue, event.city)

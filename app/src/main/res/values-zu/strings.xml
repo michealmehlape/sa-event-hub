@@ -116,4 +116,5 @@
     <string name="toast_wrong_current_password">Iphasiwedi yakho yamanje ayilungile.</string>
     <string name="toast_password_changed">Iphasiwedi ishintshiwe.</string>
     <string name="toast_password_failed">Ayikwazanga ukushintsha iphasiwedi.</string>
+    <string name="date_at_time">%1$s, %2$s</string>
 </resources>

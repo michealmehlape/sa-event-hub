@@ -15,7 +15,7 @@ class AuthViewModel : ViewModel() {
 
 
     val isLoading = MutableLiveData(false)            // true while we wait for Firebase
-    val errorMessage = MutableLiveData<String?>(null) // text to show if something goes wrong
+    val errorMessage = MutableLiveData<UiText?>(null) // message to show if something goes wrong
     val isLoggedIn = MutableLiveData(false)           // becomes true when login/register works
 
     // LOGIN
@@ -38,7 +38,7 @@ class AuthViewModel : ViewModel() {
                     isLoggedIn.value = true
                 } else {
                     Log.w("AuthViewModel", "Login failed", task.exception)
-                    errorMessage.value = "Incorrect email or password."
+                    errorMessage.value = UiText(R.string.err_login_failed)
                 }
             }
     }
@@ -63,7 +63,7 @@ class AuthViewModel : ViewModel() {
                 } else {
                     isLoading.value = false
                     Log.w("AuthViewModel", "Register failed", task.exception)
-                    errorMessage.value = "Could not create the account. The email may already be used."
+                    errorMessage.value = UiText(R.string.err_register_failed)
                 }
             }
     }
@@ -93,13 +93,13 @@ class AuthViewModel : ViewModel() {
                     isLoggedIn.value = true
                 } else {
                     Log.w("AuthViewModel", "Google sign-in failed", task.exception)
-                    errorMessage.value = "Google sign-in failed. Please try again."
+                    errorMessage.value = UiText(R.string.google_sign_in_failed)
                 }
             }
     }
 
     // Lets the screen report an error from the Google popup
-    fun showError(message: String) {
+    fun showError(message: UiText) {
         errorMessage.value = message
     }
 }

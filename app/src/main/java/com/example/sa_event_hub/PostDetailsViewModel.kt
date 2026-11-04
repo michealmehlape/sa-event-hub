@@ -12,7 +12,7 @@ class PostDetailsViewModel : ViewModel() {
 
     val comments = MutableLiveData<List<Comment>>(emptyList())
     val isLoading = MutableLiveData(false)
-    val errorMessage = MutableLiveData<String?>(null)
+    val errorMessage = MutableLiveData<UiText?>(null)
 
     fun loadComments(postId: String) {
         isLoading.value = true
@@ -25,16 +25,16 @@ class PostDetailsViewModel : ViewModel() {
 
                 if (response.isSuccessful && list != null) {
                     comments.value = list
-                    errorMessage.value = if (list.isEmpty()) "No comments yet." else null
+                    errorMessage.value = if (list.isEmpty()) 	UiText(R.string.no_comments) else null
                 } else {
-                    errorMessage.value = "Could not load comments (error ${response.code()})."
+                    errorMessage.value = UiText(R.string.err_load_comments, response.code())
                 }
             }
 
             override fun onFailure(call: Call<CommentListResponse>, t: Throwable) {
                 isLoading.value = false
                 Log.w("PostDetailsViewModel", "Could not reach the API", t)
-                errorMessage.value = "No internet connection."
+                errorMessage.value = UiText(R.string.err_no_internet_retry)
             }
         })
     }
@@ -48,12 +48,12 @@ class PostDetailsViewModel : ViewModel() {
                 if (response.isSuccessful) {
                     loadComments(postId)
                 } else {
-                    errorMessage.value = "Could not add the comment (error ${response.code()})."
+                    errorMessage.value = UiText(R.string.err_add_comment, response.code())
                 }
             }
 
             override fun onFailure(call: Call<Comment>, t: Throwable) {
-                errorMessage.value = "No internet connection."
+                errorMessage.value = UiText(R.string.err_no_internet_retry)
             }
         })
     }

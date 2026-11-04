@@ -42,7 +42,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
         val user = FirebaseAuth.getInstance().currentUser
         val name = user?.displayName
         if (name.isNullOrBlank()) {
-            binding.tvName.text = "SA Event Hub user"
+            getString(R.string.user_default_name)
         } else {
             binding.tvName.text = name
         }

@@ -34,7 +34,7 @@ class RegisterActivity : AppCompatActivity() {
             if (message == null) {
                 binding.tvError.visibility = View.GONE
             } else {
-                binding.tvError.text = message
+                binding.tvError.text = message.asString(this)
                 binding.tvError.visibility = View.VISIBLE
             }
         }

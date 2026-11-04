@@ -136,6 +136,32 @@
             android:text="@string/save_interests"
             android:textColor="@color/white" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/section_language"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <RadioGroup
+            android:id="@+id/rgLanguage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp">
+
+            <RadioButton android:id="@+id/rbEnglish" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="@string/language_english"
+                android:textColor="@color/white" />
+            <RadioButton android:id="@+id/rbAfrikaans" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="@string/language_afrikaans"
+                android:textColor="@color/white" />
+            <RadioButton android:id="@+id/rbZulu" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="@string/language_zulu"
+                android:textColor="@color/white" />
+        </RadioGroup>
+
         <!-- ===== PASSWORD ===== -->
         <TextView
             android:layout_width="wrap_content"

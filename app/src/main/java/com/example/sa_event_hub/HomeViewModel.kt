@@ -13,7 +13,7 @@ class HomeViewModel : ViewModel() {
     // The Home screen watches these three values
     val events = MutableLiveData<List<Event>>(emptyList())
     val isLoading = MutableLiveData(false)
-    val errorMessage = MutableLiveData<String?>(null)
+    val errorMessage = MutableLiveData<UiText?>(null)
 
     fun loadEvents() {
         isLoading.value = true
@@ -32,11 +32,11 @@ class HomeViewModel : ViewModel() {
                         Log.d("HomeViewModel", "Got ${body.events.size} events")
                         events.value = body.events
                         if (body.events.isEmpty()) {
-                            errorMessage.value = "No events found right now."
+                            errorMessage.value = UiText(R.string.no_events_now)
                         }
                     } else {
                         Log.w("HomeViewModel", "API error: ${response.code()}")
-                        errorMessage.value = "Could not load events (error ${response.code()})."
+                        errorMessage.value = UiText(R.string.err_load_events, response.code())
                     }
                 }
 
@@ -44,7 +44,7 @@ class HomeViewModel : ViewModel() {
                 override fun onFailure(call: Call<EventListResponse>, t: Throwable) {
                     isLoading.value = false
                     Log.w("HomeViewModel", "Could not reach the API", t)
-                    errorMessage.value = "No internet connection. Please try again."
+                    errorMessage.value = UiText(R.string.err_no_internet_retry)
                 }
             })
     }

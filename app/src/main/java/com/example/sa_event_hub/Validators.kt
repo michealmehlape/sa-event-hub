@@ -20,30 +20,30 @@ object Validators {
         return longEnough && hasLetter && hasNumber
     }
 
-    // Checks the login form. Returns an error message, or null if it is OK.
-    fun checkLogin(email: String, password: String): String? {
-        if (email.isBlank()) return "Please enter your email."
-        if (!isEmailValid(email)) return "That email does not look right."
-        if (password.isEmpty()) return "Please enter your password."
+    // Checks the login form. Returns a message to show, or null if it is OK.
+    fun checkLogin(email: String, password: String): UiText? {
+        if (email.isBlank()) return UiText(R.string.err_enter_email)
+        if (!isEmailValid(email)) return UiText(R.string.err_email_invalid)
+        if (password.isEmpty()) return UiText(R.string.err_enter_password)
         return null
     }
 
-    // Checks the register form. Returns an error message, or null if it is OK.
-    fun checkRegister(name: String, email: String, password: String, confirm: String): String? {
-        if (name.isBlank()) return "Please enter your full name."
-        if (email.isBlank()) return "Please enter your email."
-        if (!isEmailValid(email)) return "That email does not look right."
-        if (!isPasswordValid(password)) return "Password needs 8+ characters, a letter and a number."
-        if (password != confirm) return "The passwords do not match."
+    // Checks the register form. Returns a message to show, or null if it is OK.
+    fun checkRegister(name: String, email: String, password: String, confirm: String): UiText? {
+        if (name.isBlank()) return UiText(R.string.err_enter_name)
+        if (email.isBlank()) return UiText(R.string.err_enter_email)
+        if (!isEmailValid(email)) return UiText(R.string.err_email_invalid)
+        if (!isPasswordValid(password)) return UiText(R.string.err_password_rules)
+        if (password != confirm) return UiText(R.string.err_passwords_mismatch)
         return null
     }
 
-    // Checks the change-password form. Returns an error message, or null if it is OK.
-    fun checkPasswordChange(current: String, newPassword: String, confirm: String): String? {
-        if (current.isEmpty()) return "Please enter your current password."
-        if (!isPasswordValid(newPassword)) return "New password needs 8+ characters, a letter and a number."
-        if (newPassword != confirm) return "The new passwords do not match."
-        if (newPassword == current) return "The new password must be different."
+    // Checks the change-password form. Returns a message to show, or null if it is OK.
+    fun checkPasswordChange(current: String, newPassword: String, confirm: String): UiText? {
+        if (current.isEmpty()) return UiText(R.string.err_enter_current_password)
+        if (!isPasswordValid(newPassword)) return UiText(R.string.err_new_password_rules)
+        if (newPassword != confirm) return UiText(R.string.err_new_passwords_mismatch)
+        if (newPassword == current) return UiText(R.string.err_new_password_same)
         return null
     }
 }

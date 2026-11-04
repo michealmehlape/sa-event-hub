@@ -12,7 +12,7 @@ class SearchViewModel : ViewModel() {
 
     val results = MutableLiveData<List<Event>>(emptyList())
     val isLoading = MutableLiveData(false)
-    val errorMessage = MutableLiveData<String?>(null)
+    val errorMessage = MutableLiveData<UiText?>(null)
 
     // The filters currently chosen. null means "no filter".
     var keyword: String = ""
@@ -56,16 +56,16 @@ class SearchViewModel : ViewModel() {
 
                 if (response.isSuccessful && body != null) {
                     results.value = body.events
-                    errorMessage.value = if (body.events.isEmpty()) "No events found. Try different filters." else null
+                    errorMessage.value = if (body.events.isEmpty()) UiText(R.string.no_results) else null
                 } else {
-                    errorMessage.value = "Could not search events (error ${response.code()})."
+                    errorMessage.value = UiText(R.string.err_search, response.code())
                 }
             }
 
             override fun onFailure(call: Call<EventListResponse>, t: Throwable) {
                 isLoading.value = false
                 Log.w("SearchViewModel", "Could not reach the API", t)
-                errorMessage.value = "No internet connection."
+                errorMessage.value = UiText(R.string.err_no_internet_retry)
             }
         })
     }

@@ -9,6 +9,8 @@ import com.example.sa_event_hub.databinding.ActivitySettingsBinding
 import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserProfileChangeRequest
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.os.LocaleListCompat
 
 // The Settings screen. The user can change their name, password, notification choice and event interests.
 class SettingsActivity : AppCompatActivity() {
@@ -38,6 +40,8 @@ class SettingsActivity : AppCompatActivity() {
             prefs.edit().putBoolean("notifications", isChecked).apply()
             Log.d("SettingsActivity", "Notifications turned on = $isChecked")
         }
+        // Shows the current language and lets the user change it
+        setupLanguage()
     }
 
     // Fills the screen with the saved values
@@ -61,7 +65,7 @@ class SettingsActivity : AppCompatActivity() {
     private fun saveName() {
         val name = binding.etName.text.toString().trim()
         if (name.isEmpty()) {
-            Toast.makeText(this, "Please enter your name.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.toast_enter_name), Toast.LENGTH_SHORT).show()
             return
         }
 
@@ -72,10 +76,10 @@ class SettingsActivity : AppCompatActivity() {
         auth.currentUser?.updateProfile(changes)?.addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 Log.d("SettingsActivity", "Name changed")
-                Toast.makeText(this, "Name saved.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.toast_name_saved), Toast.LENGTH_SHORT).show()
             } else {
                 Log.w("SettingsActivity", "Name change failed", task.exception)
-                Toast.makeText(this, "Could not save your name.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.toast_name_failed), Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -91,7 +95,7 @@ class SettingsActivity : AppCompatActivity() {
 
         prefs.edit().putStringSet("interests", interests).apply()
         Log.d("SettingsActivity", "Interests saved: $interests")
-        Toast.makeText(this, "Interests saved.", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, getString(R.string.toast_interests_saved), Toast.LENGTH_SHORT).show()
     }
 
     // CHANGE PASSWORD
@@ -103,14 +107,14 @@ class SettingsActivity : AppCompatActivity() {
         // 1. Check what the user typed
         val problem = Validators.checkPasswordChange(current, newPassword, confirm)
         if (problem != null) {
-            Toast.makeText(this, problem, Toast.LENGTH_LONG).show()
+            Toast.makeText(this, problem.asString(this), Toast.LENGTH_LONG).show()
             return
         }
 
         val user = auth.currentUser
         val email = user?.email
         if (user == null || email == null) {
-            Toast.makeText(this, "Please log in again.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.toast_login_again), Toast.LENGTH_SHORT).show()
             return
         }
 
@@ -118,7 +122,7 @@ class SettingsActivity : AppCompatActivity() {
         val credential = EmailAuthProvider.getCredential(email, current)
         user.reauthenticate(credential).addOnCompleteListener { checkTask ->
             if (!checkTask.isSuccessful) {
-                Toast.makeText(this, "Your current password is wrong.", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, getString(R.string.toast_wrong_current_password), Toast.LENGTH_LONG).show()
                 return@addOnCompleteListener
             }
 
@@ -126,15 +130,36 @@ class SettingsActivity : AppCompatActivity() {
             user.updatePassword(newPassword).addOnCompleteListener { changeTask ->
                 if (changeTask.isSuccessful) {
                     Log.d("SettingsActivity", "Password changed")
-                    Toast.makeText(this, "Password changed.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.toast_password_changed), Toast.LENGTH_SHORT).show()
                     binding.etCurrentPassword.text?.clear()
                     binding.etNewPassword.text?.clear()
                     binding.etConfirmNewPassword.text?.clear()
                 } else {
                     Log.w("SettingsActivity", "Password change failed", changeTask.exception)
-                    Toast.makeText(this, "Could not change the password.", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, getString(R.string.toast_password_failed), Toast.LENGTH_LONG).show()
                 }
             }
         }
     }
+    // LANGUAGE: shows the current language and switches it when the user picks another one
+    private fun setupLanguage() {
+        val current = AppCompatDelegate.getApplicationLocales()[0]?.language ?: "en"
+        when (current) {
+            "af" -> binding.rbAfrikaans.isChecked = true
+            "zu" -> binding.rbZulu.isChecked = true
+            else -> binding.rbEnglish.isChecked = true
+        }
+        binding.rgLanguage.setOnCheckedChangeListener { _, checkedId ->
+            val tag = when (checkedId) {
+                binding.rbAfrikaans.id -> "af"
+                binding.rbZulu.id -> "zu"
+                else -> "en"
+            }
+            if (tag != current) {
+                Log.d("SettingsActivity", "Language changed to $tag")
+                AppCompatDelegate.setApplicationLocales(LocaleListCompat.forLanguageTags(tag))
+            }
+        }
+    }
+
 }

@@ -45,7 +45,7 @@ class EventDetailsActivity : AppCompatActivity() {
 
         viewModel.errorMessage.observe(this) { message ->
             if (message != null) {
-                Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, message.asString(this), Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -68,7 +68,7 @@ class EventDetailsActivity : AppCompatActivity() {
     private fun showEvent(event: Event) {
         binding.tvCategory.text = (event.category ?: "").uppercase()
         binding.tvTitle.text = event.title
-        binding.tvDateTime.text = EventFormat.dateAndTime(event.date, event.time)
+        EventFormat.dateAndTime(this, event.date, event.time)
 
         binding.tvVenue.text = listOfNotNull(event.venue, event.city)
             .filter { it.isNotBlank() }
