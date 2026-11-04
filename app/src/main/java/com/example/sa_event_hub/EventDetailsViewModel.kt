@@ -1,95 +1,81 @@
 package com.example.sa_event_hub
 
+import android.app.Application
 import android.util.Log
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
+import androidx.lifecycle.switchMap
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class EventDetailsViewModel : ViewModel() {
+// One event's details. Saving works offline through the local database.
+class EventDetailsViewModel(application: Application) : AndroidViewModel(application) {
+
+    private val repository = FavouritesRepository.get(application)
 
     val event = MutableLiveData<Event?>(null)
     val isLoading = MutableLiveData(false)
     val errorMessage = MutableLiveData<UiText?>(null)
-    val isSaved = MutableLiveData(false)
-    private var working = false   // stops double-taps on the Save button
+
+    // Follows the local database, so the Save button is always right, even offline
+    private val currentId = MutableLiveData<String>()
+    val isSaved: LiveData<Boolean> = currentId.switchMap { id ->
+        repository.isSaved(id).asLiveData()
+    }
 
     // Loads the full details of one event
     fun loadEvent(eventId: String) {
+        currentId.value = eventId
         isLoading.value = true
         ApiClient.service.getEvent(eventId).enqueue(object : Callback<Event> {
             override fun onResponse(call: Call<Event>, response: Response<Event>) {
-                isLoading.value = false
-                if (response.isSuccessful && response.body() != null) {
-                    event.value = response.body()
-                    checkIfSaved(eventId)
+                val body = response.body()
+                if (response.isSuccessful && body != null) {
+                    isLoading.value = false
+                    event.value = body
                 } else {
-                    errorMessage.value = UiText(R.string.err_load_event, response.code())
+                    useSavedCopy(eventId, UiText(R.string.err_load_event, response.code()))
                 }
             }
 
             override fun onFailure(call: Call<Event>, t: Throwable) {
-                isLoading.value = false
                 Log.w("EventDetailsViewModel", "Could not reach the API", t)
-                errorMessage.value = UiText(R.string.err_no_internet_retry)
+                useSavedCopy(eventId, UiText(R.string.err_no_internet))
             }
         })
     }
 
-    // Looks through the user's saved events to see if this one is there
-    private fun checkIfSaved(eventId: String) {
-        ApiClient.service.getFavourites().enqueue(object : Callback<FavouriteListResponse> {
-            override fun onResponse(call: Call<FavouriteListResponse>, response: Response<FavouriteListResponse>) {
-                val list = response.body()?.favourites ?: emptyList()
-                isSaved.value = list.any { it.id == eventId }
+    // If the API cannot be reached, show the copy saved on the phone (if there is one)
+    private fun useSavedCopy(eventId: String, error: UiText) {
+        viewModelScope.launch {
+            val local = repository.getLocal(eventId)
+            isLoading.value = false
+            if (local != null) {
+                Log.d("EventDetailsViewModel", "Showing the saved copy of $eventId")
+                event.value = local.toEvent()
+            } else {
+                errorMessage.value = error
             }
-
-            override fun onFailure(call: Call<FavouriteListResponse>, t: Throwable) {
-                Log.w("EventDetailsViewModel", "Could not check saved events", t)
-                // Not a big problem: the button just starts as "not saved"
-            }
-        })
+        }
     }
 
-    // Called when the user taps the Save button. Saves it, or removes it if already saved.
+    // Save button: saves the event, or removes it if it is already saved
     fun toggleSave(eventId: String) {
-        if (working) return
-        working = true
-
-        if (isSaved.value == true) {
-            ApiClient.service.removeFavourite(eventId).enqueue(object : Callback<MessageResponse> {
-                override fun onResponse(call: Call<MessageResponse>, response: Response<MessageResponse>) {
-                    working = false
-                    if (response.isSuccessful) {
-                        isSaved.value = false
-                    } else {
-                        errorMessage.value = UiText(R.string.err_remove_event)
-                    }
-                }
-
-                override fun onFailure(call: Call<MessageResponse>, t: Throwable) {
-                    working = false
-                    errorMessage.value = UiText(R.string.err_no_internet_retry)
-                }
-            })
-        } else {
-            ApiClient.service.addFavourite(FavouriteRequest(eventId)).enqueue(object : Callback<Event> {
-                override fun onResponse(call: Call<Event>, response: Response<Event>) {
-                    working = false
-                    // 409 means it was already saved, which is fine too
-                    if (response.isSuccessful || response.code() == 409) {
-                        isSaved.value = true
-                    } else {
-                        errorMessage.value = UiText(R.string.err_save_event)
-                    }
-                }
-
-                override fun onFailure(call: Call<Event>, t: Throwable) {
-                    working = false
-                    errorMessage.value = UiText(R.string.err_no_internet_retry)
-                }
-            })
+        val current = event.value ?: return
+        viewModelScope.launch {
+            try {
+                if (isSaved.value == true) repository.remove(eventId) else repository.save(current)
+            } catch (e: Exception) {
+                Log.e("EventDetailsViewModel", "Could not update the saved event", e)
+                errorMessage.value = UiText(
+                    if (isSaved.value == true) R.string.err_remove_event else R.string.err_save_event
+                )
+            }
         }
     }
 }

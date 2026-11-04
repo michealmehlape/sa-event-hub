@@ -117,4 +117,9 @@
     <string name="toast_password_changed">Wagwoord verander.</string>
     <string name="toast_password_failed">Kon nie die wagwoord verander nie.</string>
     <string name="date_at_time">%1$s om %2$s</string>
+
+    <string name="change_photo">Verander foto</string>
+    <string name="toast_photo_updated">Profielfoto opgedateer.</string>
+    <string name="err_upload_photo">Kon nie die foto oplaai nie. Probeer asseblief weer.</string>
+    <string name="err_photo_read">Kon nie daardie prent lees nie.</string>
 </resources>

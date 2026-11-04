@@ -127,4 +127,9 @@
     <string name="toast_password_changed">Password changed.</string>
     <string name="toast_password_failed">Could not change the password.</string>
     <string name="date_at_time">%1$s at %2$s</string>
+
+    <string name="change_photo">Change photo</string>
+    <string name="toast_photo_updated">Profile photo updated.</string>
+    <string name="err_upload_photo">Could not upload the photo. Please try again.</string>
+    <string name="err_photo_read">Could not read that picture.</string>
 </resources>

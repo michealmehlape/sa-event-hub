@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
             return
         }
+        FavouritesRepository.get(this).syncNow()
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)

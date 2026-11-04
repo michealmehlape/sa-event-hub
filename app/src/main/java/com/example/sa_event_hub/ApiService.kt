@@ -7,6 +7,11 @@ import retrofit2.http.Query
 import retrofit2.http.Body
 import retrofit2.http.DELETE
 import retrofit2.http.POST
+import okhttp3.MultipartBody
+import retrofit2.http.Multipart
+import retrofit2.http.Part
+import retrofit2.http.PUT
+
 
 interface ApiService {
 
@@ -61,5 +66,18 @@ interface ApiService {
     @POST("api/community/posts/{postId}/comments")
     fun addComment(@Path("postId") postId: String, @Body body: CommentRequest): Call<Comment>
 
+
+    // GET /api/profile
+    @GET("api/profile")
+    fun getProfile(): Call<ProfileResponse>
+
+    // POST /api/profile/photo  (multipart upload)
+    @Multipart
+    @POST("api/profile/photo")
+    fun uploadPhoto(@Part photo: MultipartBody.Part): Call<PhotoResponse>
+
+    // PUT /api/profile
+    @PUT("api/profile")
+    fun updateProfile(@Body body: ProfileUpdate): Call<ProfileResponse>
 
 }

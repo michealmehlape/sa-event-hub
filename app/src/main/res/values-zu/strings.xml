@@ -117,4 +117,9 @@
     <string name="toast_password_changed">Iphasiwedi ishintshiwe.</string>
     <string name="toast_password_failed">Ayikwazanga ukushintsha iphasiwedi.</string>
     <string name="date_at_time">%1$s, %2$s</string>
+
+    <string name="change_photo">Shintsha isithombe</string>
+    <string name="toast_photo_updated">Isithombe sephrofayela sishintshiwe.</string>
+    <string name="err_upload_photo">Ayikwazanga ukulayisha isithombe. Sicela uzame futhi.</string>
+    <string name="err_photo_read">Ayikwazanga ukufunda lowo mfanekiso.</string>
 </resources>

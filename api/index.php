@@ -14,6 +14,7 @@ require __DIR__ . '/events.php';
 require __DIR__ . '/favourites.php';
 require __DIR__ . '/profile.php';
 require __DIR__ . '/posts.php';
+require __DIR__ . '/photo.php';
 
 // Load our secret settings from the private folder
 $config = require '/home/phatudu1u9f9/private/config.php';
@@ -61,9 +62,13 @@ try {
         }
 
         // ----- PROFILE (login needed) -----
+                // ----- PROFILE (login needed) -----
         if ($resource === 'profile') {
             $user = requireUser($config);
 
+            if ($method === 'POST' && $id === 'photo') {
+                uploadProfilePhoto($config, $user);       // POST /api/profile/photo
+            }
             if ($method === 'GET') {
                 getProfile($config, $user);               // GET /api/profile
             }
