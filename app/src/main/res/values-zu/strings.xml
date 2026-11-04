@@ -122,4 +122,9 @@
     <string name="toast_photo_updated">Isithombe sephrofayela sishintshiwe.</string>
     <string name="err_upload_photo">Ayikwazanga ukulayisha isithombe. Sicela uzame futhi.</string>
     <string name="err_photo_read">Ayikwazanga ukufunda lowo mfanekiso.</string>
+
+    <string name="notif_channel_name">Izibuyekezo zomphakathi</string>
+    <string name="notif_channel_description">Izaziso mayelana namazwana kokuthunyelwe kwakho</string>
+    <string name="notif_comment_title">Izwana elisha</string>
+    <string name="notif_comment_body">%1$s ushiye izwana kokuthunyelwe kwakho.</string>
 </resources>

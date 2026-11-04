@@ -12,8 +12,7 @@ function loadProfile($config, $user)
     $profile = $ref->getValue();
 
     if (!is_array($profile)) {
-        // First time: ask Firebase for the user's name and email
-                // First time: use the name and email that were inside the login token
+        // First time: use the name and email that were inside the login token
         $name  = $user['name'] !== '' ? $user['name'] : $user['email'];
         $email = $user['email'];
 
@@ -38,11 +37,15 @@ function loadProfile($config, $user)
 function getProfile($config, $user)
 {
     [$ref, $profile] = loadProfile($config, $user);
+
+    // The push token is only for the server. The app does not need it back.
+    unset($profile['fcmToken']);
+
     sendJson($profile);
 }
 
 // PUT /api/profile
-// The app can send any of: name, language, interests, notificationsEnabled
+// The app can send any of: name, language, interests, notificationsEnabled, fcmToken
 function updateProfile($config, $user)
 {
     $body = readJsonBody();
@@ -84,11 +87,24 @@ function updateProfile($config, $user)
         $updates['notificationsEnabled'] = $body['notificationsEnabled'];
     }
 
+    // The phone's push address (Firebase Cloud Messaging token)
+    if (array_key_exists('fcmToken', $body)) {
+        $token = (string)$body['fcmToken'];
+        if (mb_strlen($token) > 4096) {
+            sendError('The push token is too long.', 400);
+        }
+        $updates['fcmToken'] = $token;
+    }
+
     if (count($updates) === 0) {
-        sendError('Nothing to update. Send name, language, interests or notificationsEnabled.', 400);
+        sendError('Nothing to update. Send name, language, interests, notificationsEnabled or fcmToken.', 400);
     }
 
     $ref->update($updates);
 
-    sendJson(array_merge($profile, $updates));
+    // Send the profile back, without the push token
+    $result = array_merge($profile, $updates);
+    unset($result['fcmToken']);
+
+    sendJson($result);
 }

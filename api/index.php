@@ -15,6 +15,7 @@ require __DIR__ . '/favourites.php';
 require __DIR__ . '/profile.php';
 require __DIR__ . '/posts.php';
 require __DIR__ . '/photo.php';
+require __DIR__ . '/push.php';
 
 // Load our secret settings from the private folder
 $config = require '/home/phatudu1u9f9/private/config.php';
@@ -62,7 +63,6 @@ try {
         }
 
         // ----- PROFILE (login needed) -----
-                // ----- PROFILE (login needed) -----
         if ($resource === 'profile') {
             $user = requireUser($config);
 
@@ -77,7 +77,8 @@ try {
             }
             sendError('That method is not allowed here.', 405);
         }
-                // ----- COMMUNITY (login needed) -----
+
+        // ----- COMMUNITY (login needed) -----
         if ($resource === 'community') {
             $user = requireUser($config);
             $sub  = $parts[2] ?? '';   // "posts"

@@ -73,6 +73,7 @@ function addComment($config, $user, $postId)
     $postRef = getDatabase($config)->getReference('posts/' . $postId);
     if (!$postRef->getSnapshot()->exists()) {
         sendError('That post does not exist.', 404);
+        $post = $postRef->getValue();
     }
 
     $data = readJsonBody();
@@ -94,7 +95,10 @@ function addComment($config, $user, $postId)
     $newRef = getDatabase($config)->getReference('comments/' . $postId)->push($comment);
     $comment['id'] = $newRef->getKey();
 
-    sendJson($comment, 201);
+        // Answer the app first, then send the notification
+        respondThenRun($comment, 201, function () use ($config, $post, $postId, $user, $authorName) {
+            notifyPostAuthor($config, $post, $postId, $user, $authorName);
+        });
 }
 
 // A Firebase push key looks like -NxAbCdEfGh12345.

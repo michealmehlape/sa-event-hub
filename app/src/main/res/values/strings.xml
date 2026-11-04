@@ -132,4 +132,9 @@
     <string name="toast_photo_updated">Profile photo updated.</string>
     <string name="err_upload_photo">Could not upload the photo. Please try again.</string>
     <string name="err_photo_read">Could not read that picture.</string>
+
+    <string name="notif_channel_name">Community updates</string>
+    <string name="notif_channel_description">Alerts about comments on your posts</string>
+    <string name="notif_comment_title">New comment</string>
+    <string name="notif_comment_body">%1$s commented on your post.</string>
 </resources>

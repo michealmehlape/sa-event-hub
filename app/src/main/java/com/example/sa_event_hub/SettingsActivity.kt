@@ -40,6 +40,13 @@ class SettingsActivity : AppCompatActivity() {
             prefs.edit().putBoolean("notifications", isChecked).apply()
             Log.d("SettingsActivity", "Notifications turned on = $isChecked")
         }
+
+        binding.switchNotifications.setOnCheckedChangeListener { _, isChecked ->
+            prefs.edit().putBoolean("notifications", isChecked).apply()
+            PushTokens.saveNotificationsEnabled(isChecked)
+            Log.d("SettingsActivity", "Notifications turned on = $isChecked")
+        }
+
         // Shows the current language and lets the user change it
         setupLanguage()
     }
@@ -158,8 +165,13 @@ class SettingsActivity : AppCompatActivity() {
             if (tag != current) {
                 Log.d("SettingsActivity", "Language changed to $tag")
                 AppCompatDelegate.setApplicationLocales(LocaleListCompat.forLanguageTags(tag))
+                prefs.edit().putString("language", tag).apply()
             }
+
         }
+
+
     }
+
 
 }

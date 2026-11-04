@@ -6,13 +6,25 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.sa_event_hub.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
+import android.Manifest
+import android.content.pm.PackageManager
+import android.os.Build
+import android.util.Log
+import androidx.activity.result.contract.ActivityResultContracts
 
 // The main screen. It holds the bottom menu and shows one tab (Fragment) at a time.
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
+    // Asks the user to allow notifications (needed on Android 13 and newer)
+    private val askNotificationPermission =
+        registerForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
+            Log.d("MainActivity", "Notification permission granted = $granted")
+        }
+
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
 
         // if user is not logged in, go back to the Welcome screen
@@ -22,6 +34,14 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
             return
         }
+
+        if (Build.VERSION.SDK_INT >= 33 &&
+            checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED
+        ) {
+            askNotificationPermission.launch(Manifest.permission.POST_NOTIFICATIONS)
+        }
+        PushTokens.register()   // sends this phone's push address to the API
+
         FavouritesRepository.get(this).syncNow()
 
         binding = ActivityMainBinding.inflate(layoutInflater)

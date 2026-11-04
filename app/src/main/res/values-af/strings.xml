@@ -122,4 +122,9 @@
     <string name="toast_photo_updated">Profielfoto opgedateer.</string>
     <string name="err_upload_photo">Kon nie die foto oplaai nie. Probeer asseblief weer.</string>
     <string name="err_photo_read">Kon nie daardie prent lees nie.</string>
+
+    <string name="notif_channel_name">Gemeenskapopdaterings</string>
+    <string name="notif_channel_description">Kennisgewings oor opmerkings op jou plasings</string>
+    <string name="notif_comment_title">Nuwe opmerking</string>
+    <string name="notif_comment_body">%1$s het kommentaar op jou plasing gelewer.</string>
 </resources>
