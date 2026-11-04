@@ -1,0 +1,119 @@
+<resources>
+    <string name="tagline">Ontdek. Konnekteer. Ervaar.</string>
+    <string name="welcome_message">Ontdek geleenthede regoor Suid-Afrika</string>
+    <string name="get_started">Begin</string>
+
+    <string name="login_title">Welkom terug!</string>
+    <string name="login_subtitle">Teken in om voort te gaan om geleenthede te ontdek.</string>
+    <string name="log_in">Teken in</string>
+    <string name="go_to_register">Het jy nie \'n rekening nie? Registreer</string>
+    <string name="continue_with_google">Gaan voort met Google</string>
+    <string name="or_divider">of</string>
+    <string name="google_sign_in_failed">Google-aanmelding het misluk. Probeer asseblief weer.</string>
+
+    <string name="register_title">Skep jou rekening</string>
+    <string name="register_subtitle">Sluit by SA Event Hub aan en mis nooit \'n geleentheid nie.</string>
+    <string name="create_account">Skep rekening</string>
+    <string name="go_to_login">Het jy reeds \'n rekening? Teken in</string>
+
+    <string name="full_name">Volle naam</string>
+    <string name="email">E-posadres</string>
+    <string name="password">Wagwoord</string>
+    <string name="confirm_password">Bevestig wagwoord</string>
+
+    <string name="log_out">Teken uit</string>
+
+    <string name="nav_home">Tuis</string>
+    <string name="nav_search">Soek</string>
+    <string name="nav_saved">Gestoor</string>
+    <string name="nav_community">Gemeenskap</string>
+    <string name="nav_profile">Profiel</string>
+    <string name="coming_soon">Hierdie skerm kom binnekort.</string>
+
+    <string name="settings_button">Instellings</string>
+    <string name="settings_title">Instellings</string>
+    <string name="back">&#8592; Terug</string>
+
+    <string name="section_name">Jou naam</string>
+    <string name="save_name">Stoor naam</string>
+
+    <string name="section_notifications">Kennisgewings</string>
+    <string name="notifications_switch">Stootkennisgewings</string>
+
+    <string name="section_interests">Geleentheidsbelangstellings</string>
+    <string name="interest_music">Musiek</string>
+    <string name="interest_sports">Sport</string>
+    <string name="interest_arts">Kuns en kultuur</string>
+    <string name="interest_comedy">Komedie</string>
+    <string name="interest_business">Besigheid</string>
+    <string name="save_interests">Stoor belangstellings</string>
+
+    <string name="section_password">Verander wagwoord</string>
+    <string name="current_password">Huidige wagwoord</string>
+    <string name="new_password">Nuwe wagwoord</string>
+    <string name="confirm_new_password">Bevestig nuwe wagwoord</string>
+    <string name="change_password">Verander wagwoord</string>
+
+    <string name="section_language">Taal</string>
+
+    <string name="upcoming_events">Komende geleenthede</string>
+    <string name="try_again">Probeer weer</string>
+
+    <string name="save_event">Stoor geleentheid</string>
+    <string name="saved">Gestoor ✓</string>
+    <string name="get_tickets">Kry kaartjies</string>
+    <string name="no_description">Geen beskrywing beskikbaar nie.</string>
+    <string name="no_saved_events">Jy het nog geen geleenthede gestoor nie.</string>
+    <string name="no_ticket_link">Geen kaartjieskakel beskikbaar nie.</string>
+
+    <string name="search_hint">Soek geleenthede, kunstenaars, lokale…</string>
+    <string name="filter_all">Alles</string>
+    <string name="filter_city">Stad</string>
+    <string name="any_city">Enige stad</string>
+    <string name="no_results">Geen geleenthede gevind nie. Probeer ander filters.</string>
+
+    <string name="write_a_post">Deel iets met die gemeenskap…</string>
+    <string name="post_button">Plaas</string>
+    <string name="no_posts">Nog geen plasings nie. Wees die eerste om iets te deel.</string>
+    <string name="write_a_comment">Skryf \'n opmerking…</string>
+    <string name="no_comments">Nog geen opmerkings nie.</string>
+
+    <string name="err_enter_email">Voer asseblief jou e-pos in.</string>
+    <string name="err_email_invalid">Daardie e-pos lyk nie reg nie.</string>
+    <string name="err_enter_password">Voer asseblief jou wagwoord in.</string>
+    <string name="err_enter_name">Voer asseblief jou volle naam in.</string>
+    <string name="err_password_rules">Wagwoord moet minstens 8 karakters, \'n letter en \'n syfer hê.</string>
+    <string name="err_passwords_mismatch">Die wagwoorde stem nie ooreen nie.</string>
+    <string name="err_enter_current_password">Voer asseblief jou huidige wagwoord in.</string>
+    <string name="err_new_password_rules">Nuwe wagwoord moet minstens 8 karakters, \'n letter en \'n syfer hê.</string>
+    <string name="err_new_passwords_mismatch">Die nuwe wagwoorde stem nie ooreen nie.</string>
+    <string name="err_new_password_same">Die nuwe wagwoord moet anders wees.</string>
+
+    <string name="err_login_failed">Verkeerde e-pos of wagwoord.</string>
+    <string name="err_register_failed">Kon nie die rekening skep nie. Die e-pos word dalk reeds gebruik.</string>
+
+    <string name="err_no_internet">Geen internetverbinding nie.</string>
+    <string name="err_no_internet_retry">Geen internetverbinding nie. Probeer asseblief weer.</string>
+    <string name="err_load_saved">Kon nie jou gestoorde geleenthede laai nie (fout %1$d).</string>
+    <string name="err_search">Kon nie geleenthede soek nie (fout %1$d).</string>
+    <string name="err_load_comments">Kon nie opmerkings laai nie (fout %1$d).</string>
+    <string name="err_add_comment">Kon nie die opmerking byvoeg nie (fout %1$d).</string>
+    <string name="err_load_event">Kon nie hierdie geleentheid laai nie (fout %1$d).</string>
+    <string name="err_remove_event">Kon nie hierdie geleentheid verwyder nie.</string>
+    <string name="err_save_event">Kon nie hierdie geleentheid stoor nie.</string>
+    <string name="err_load_posts">Kon nie plasings laai nie (fout %1$d).</string>
+    <string name="err_create_post">Kon nie die plasing skep nie (fout %1$d).</string>
+    <string name="err_load_events">Kon nie geleenthede laai nie (fout %1$d).</string>
+    <string name="no_events_now">Daar is tans geen geleenthede nie.</string>
+
+    <string name="date_tbc">Datum word nog aangekondig</string>
+    <string name="user_default_name">SA Event Hub-gebruiker</string>
+    <string name="toast_enter_name">Voer asseblief jou naam in.</string>
+    <string name="toast_name_saved">Naam gestoor.</string>
+    <string name="toast_name_failed">Kon nie jou naam stoor nie.</string>
+    <string name="toast_interests_saved">Belangstellings gestoor.</string>
+    <string name="toast_login_again">Teken asseblief weer in.</string>
+    <string name="toast_wrong_current_password">Jou huidige wagwoord is verkeerd.</string>
+    <string name="toast_password_changed">Wagwoord verander.</string>
+    <string name="toast_password_failed">Kon nie die wagwoord verander nie.</string>
+</resources>

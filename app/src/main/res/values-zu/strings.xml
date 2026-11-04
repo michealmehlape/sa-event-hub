@@ -1,0 +1,119 @@
+<resources>
+    <string name="tagline">Thola. Xhumana. Zizwele.</string>
+    <string name="welcome_message">Thola imicimbi eNingizimu Afrika yonke</string>
+    <string name="get_started">Qala</string>
+
+    <string name="login_title">Siyakwamukela futhi!</string>
+    <string name="login_subtitle">Ngena ukuze uqhubeke uthola imicimbi.</string>
+    <string name="log_in">Ngena</string>
+    <string name="go_to_register">Awunayo i-akhawunti? Bhalisa</string>
+    <string name="continue_with_google">Qhubeka nge-Google</string>
+    <string name="or_divider">noma</string>
+    <string name="google_sign_in_failed">Ukungena nge-Google kuhlulekile. Sicela uzame futhi.</string>
+
+    <string name="register_title">Dala i-akhawunti yakho</string>
+    <string name="register_subtitle">Joyina i-SA Event Hub ungaphuthelwa yimicimbi.</string>
+    <string name="create_account">Dala i-akhawunti</string>
+    <string name="go_to_login">Usunayo i-akhawunti? Ngena</string>
+
+    <string name="full_name">Igama eligcwele</string>
+    <string name="email">Ikheli le-imeyili</string>
+    <string name="password">Iphasiwedi</string>
+    <string name="confirm_password">Qinisekisa iphasiwedi</string>
+
+    <string name="log_out">Phuma</string>
+
+    <string name="nav_home">Ikhaya</string>
+    <string name="nav_search">Sesha</string>
+    <string name="nav_saved">Okulondoloziwe</string>
+    <string name="nav_community">Umphakathi</string>
+    <string name="nav_profile">Iphrofayela</string>
+    <string name="coming_soon">Lesi sikrini siyeza maduze.</string>
+
+    <string name="settings_button">Izilungiselelo</string>
+    <string name="settings_title">Izilungiselelo</string>
+    <string name="back">&#8592; Emuva</string>
+
+    <string name="section_name">Igama lakho</string>
+    <string name="save_name">Londoloza igama</string>
+
+    <string name="section_notifications">Izaziso</string>
+    <string name="notifications_switch">Izaziso ze-push</string>
+
+    <string name="section_interests">Izithakazelo zemicimbi</string>
+    <string name="interest_music">Umculo</string>
+    <string name="interest_sports">Ezemidlalo</string>
+    <string name="interest_arts">Ubuciko namasiko</string>
+    <string name="interest_comedy">Amahlaya</string>
+    <string name="interest_business">Ibhizinisi</string>
+    <string name="save_interests">Londoloza izithakazelo</string>
+
+    <string name="section_password">Shintsha iphasiwedi</string>
+    <string name="current_password">Iphasiwedi yamanje</string>
+    <string name="new_password">Iphasiwedi entsha</string>
+    <string name="confirm_new_password">Qinisekisa iphasiwedi entsha</string>
+    <string name="change_password">Shintsha iphasiwedi</string>
+
+    <string name="section_language">Ulimi</string>
+
+    <string name="upcoming_events">Imicimbi ezayo</string>
+    <string name="try_again">Zama futhi</string>
+
+    <string name="save_event">Londoloza umcimbi</string>
+    <string name="saved">Kulondoloziwe ✓</string>
+    <string name="get_tickets">Thola amathikithi</string>
+    <string name="no_description">Alukho ulwazi olutholakalayo.</string>
+    <string name="no_saved_events">Awukalondolozi mcimbi namanje.</string>
+    <string name="no_ticket_link">Alukho ulinki lwamathikithi olutholakalayo.</string>
+
+    <string name="search_hint">Sesha imicimbi, abaculi, izindawo…</string>
+    <string name="filter_all">Konke</string>
+    <string name="filter_city">Idolobha</string>
+    <string name="any_city">Noma yiliphi idolobha</string>
+    <string name="no_results">Ayikho imicimbi etholakele. Zama ezinye izihlungi.</string>
+
+    <string name="write_a_post">Wabelane ngokuthile nomphakathi…</string>
+    <string name="post_button">Thumela</string>
+    <string name="no_posts">Akukho okuthunyelwe okwamanje. Ba ngowokuqala ukwabelana ngokuthile.</string>
+    <string name="write_a_comment">Bhala izwana…</string>
+    <string name="no_comments">Awekho amazwana okwamanje.</string>
+
+    <string name="err_enter_email">Sicela ufake i-imeyili yakho.</string>
+    <string name="err_email_invalid">Leyo imeyili ayibonakali ilungile.</string>
+    <string name="err_enter_password">Sicela ufake iphasiwedi yakho.</string>
+    <string name="err_enter_name">Sicela ufake igama lakho eligcwele.</string>
+    <string name="err_password_rules">Iphasiwedi idinga okungenani izinhlamvu eziyi-8, uhlamvu olulodwa nenombolo eyodwa.</string>
+    <string name="err_passwords_mismatch">Amaphasiwedi awafani.</string>
+    <string name="err_enter_current_password">Sicela ufake iphasiwedi yakho yamanje.</string>
+    <string name="err_new_password_rules">Iphasiwedi entsha idinga okungenani izinhlamvu eziyi-8, uhlamvu olulodwa nenombolo eyodwa.</string>
+    <string name="err_new_passwords_mismatch">Amaphasiwedi amasha awafani.</string>
+    <string name="err_new_password_same">Iphasiwedi entsha kumele ihluke.</string>
+
+    <string name="err_login_failed">I-imeyili noma iphasiwedi akulungile.</string>
+    <string name="err_register_failed">Ayikwazanga ukudala i-akhawunti. I-imeyili ingase isivele isetshenziswa.</string>
+
+    <string name="err_no_internet">Akukho uxhumano le-inthanethi.</string>
+    <string name="err_no_internet_retry">Akukho uxhumano le-inthanethi. Sicela uzame futhi.</string>
+    <string name="err_load_saved">Ayikwazanga ukulayisha imicimbi yakho elondoloziwe (iphutha %1$d).</string>
+    <string name="err_search">Ayikwazanga ukusesha imicimbi (iphutha %1$d).</string>
+    <string name="err_load_comments">Ayikwazanga ukulayisha amazwana (iphutha %1$d).</string>
+    <string name="err_add_comment">Ayikwazanga ukwengeza izwana (iphutha %1$d).</string>
+    <string name="err_load_event">Ayikwazanga ukulayisha lo mcimbi (iphutha %1$d).</string>
+    <string name="err_remove_event">Ayikwazanga ukususa lo mcimbi.</string>
+    <string name="err_save_event">Ayikwazanga ukulondoloza lo mcimbi.</string>
+    <string name="err_load_posts">Ayikwazanga ukulayisha okuthunyelwe (iphutha %1$d).</string>
+    <string name="err_create_post">Ayikwazanga ukudala okuthunyelwe (iphutha %1$d).</string>
+    <string name="err_load_events">Ayikwazanga ukulayisha imicimbi (iphutha %1$d).</string>
+    <string name="no_events_now">Ayikho imicimbi okwamanje.</string>
+
+    <string name="date_tbc">Usuku luzokwaziswa</string>
+    <string name="user_default_name">Umsebenzisi we-SA Event Hub</string>
+    <string name="toast_enter_name">Sicela ufake igama lakho.</string>
+    <string name="toast_name_saved">Igama lilondoloziwe.</string>
+    <string name="toast_name_failed">Ayikwazanga ukulondoloza igama lakho.</string>
+    <string name="toast_interests_saved">Izithakazelo zilondoloziwe.</string>
+    <string name="toast_login_again">Sicela ungene futhi.</string>
+    <string name="toast_wrong_current_password">Iphasiwedi yakho yamanje ayilungile.</string>
+    <string name="toast_password_changed">Iphasiwedi ishintshiwe.</string>
+    <string name="toast_password_failed">Ayikwazanga ukushintsha iphasiwedi.</string>
+</resources>

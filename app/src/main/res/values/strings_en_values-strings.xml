@@ -1,0 +1,129 @@
+<resources>
+    <string name="app_name" translatable="false">SA Event Hub</string>
+    <string name="tagline">Discover. Connect. Experience.</string>
+    <string name="welcome_message">Discover events around South Africa</string>
+    <string name="get_started">Get Started</string>
+
+    <string name="login_title">Welcome back!</string>
+    <string name="login_subtitle">Log in to continue discovering events.</string>
+    <string name="log_in">Log In</string>
+    <string name="go_to_register">Don\'t have an account? Sign up</string>
+    <string name="continue_with_google">Continue with Google</string>
+    <string name="or_divider">or</string>
+    <string name="google_sign_in_failed">Google sign-in failed. Please try again.</string>
+
+    <string name="register_title">Create your account</string>
+    <string name="register_subtitle">Join SA Event Hub and never miss an event.</string>
+    <string name="create_account">Create Account</string>
+    <string name="go_to_login">Already have an account? Log in</string>
+
+    <string name="full_name">Full name</string>
+    <string name="email">Email address</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm password</string>
+
+    <string name="log_out">Log Out</string>
+
+    <string name="nav_home">Home</string>
+    <string name="nav_search">Search</string>
+    <string name="nav_saved">Saved</string>
+    <string name="nav_community">Community</string>
+    <string name="nav_profile">Profile</string>
+    <string name="coming_soon">This screen is coming soon.</string>
+
+    <string name="settings_button">Settings</string>
+    <string name="settings_title">Settings</string>
+    <string name="back">&#8592; Back</string>
+
+    <string name="section_name">Your name</string>
+    <string name="save_name">Save name</string>
+
+    <string name="section_notifications">Notifications</string>
+    <string name="notifications_switch">Push notifications</string>
+
+    <string name="section_interests">Event interests</string>
+    <string name="interest_music">Music</string>
+    <string name="interest_sports">Sports</string>
+    <string name="interest_arts">Arts &amp; Culture</string>
+    <string name="interest_comedy">Comedy</string>
+    <string name="interest_business">Business</string>
+    <string name="save_interests">Save interests</string>
+
+    <string name="section_password">Change password</string>
+    <string name="current_password">Current password</string>
+    <string name="new_password">New password</string>
+    <string name="confirm_new_password">Confirm new password</string>
+    <string name="change_password">Change password</string>
+
+    <string name="section_language">Language</string>
+    <string name="language_english" translatable="false">English</string>
+    <string name="language_afrikaans" translatable="false">Afrikaans</string>
+    <string name="language_zulu" translatable="false">isiZulu</string>
+    <string name="language_row" translatable="false">English  •  Afrikaans  •  isiZulu</string>
+
+    <string name="home_header" translatable="false">SA EVENT HUB</string>
+    <string name="upcoming_events">Upcoming events</string>
+    <string name="try_again">Try again</string>
+
+    <string name="save_event">Save Event</string>
+    <string name="saved">Saved ✓</string>
+    <string name="get_tickets">Get Tickets</string>
+    <string name="no_description">No description available.</string>
+    <string name="no_saved_events">You have not saved any events yet.</string>
+    <string name="no_ticket_link">No ticket link available.</string>
+
+    <string name="search_hint">Search events, artists, venues…</string>
+    <string name="filter_all">All</string>
+    <string name="filter_city">City</string>
+    <string name="any_city">Any city</string>
+    <string name="no_results">No events found. Try different filters.</string>
+
+    <string name="write_a_post">Share something with the community…</string>
+    <string name="post_button">Post</string>
+    <string name="no_posts">No posts yet. Be the first to share something.</string>
+    <string name="write_a_comment">Write a comment…</string>
+    <string name="no_comments">No comments yet.</string>
+
+    <!-- Validation messages -->
+    <string name="err_enter_email">Please enter your email.</string>
+    <string name="err_email_invalid">That email does not look right.</string>
+    <string name="err_enter_password">Please enter your password.</string>
+    <string name="err_enter_name">Please enter your full name.</string>
+    <string name="err_password_rules">Password needs 8+ characters, a letter and a number.</string>
+    <string name="err_passwords_mismatch">The passwords do not match.</string>
+    <string name="err_enter_current_password">Please enter your current password.</string>
+    <string name="err_new_password_rules">New password needs 8+ characters, a letter and a number.</string>
+    <string name="err_new_passwords_mismatch">The new passwords do not match.</string>
+    <string name="err_new_password_same">The new password must be different.</string>
+
+    <!-- Login and register errors -->
+    <string name="err_login_failed">Incorrect email or password.</string>
+    <string name="err_register_failed">Could not create the account. The email may already be used.</string>
+
+    <!-- Network and API errors -->
+    <string name="err_no_internet">No internet connection.</string>
+    <string name="err_no_internet_retry">No internet connection. Please try again.</string>
+    <string name="err_load_saved">Could not load your saved events (error %1$d).</string>
+    <string name="err_search">Could not search events (error %1$d).</string>
+    <string name="err_load_comments">Could not load comments (error %1$d).</string>
+    <string name="err_add_comment">Could not add the comment (error %1$d).</string>
+    <string name="err_load_event">Could not load this event (error %1$d).</string>
+    <string name="err_remove_event">Could not remove this event.</string>
+    <string name="err_save_event">Could not save this event.</string>
+    <string name="err_load_posts">Could not load posts (error %1$d).</string>
+    <string name="err_create_post">Could not create the post (error %1$d).</string>
+    <string name="err_load_events">Could not load events (error %1$d).</string>
+    <string name="no_events_now">No events found right now.</string>
+
+    <!-- Other text that was written in the code -->
+    <string name="date_tbc">Date to be announced</string>
+    <string name="user_default_name">SA Event Hub user</string>
+    <string name="toast_enter_name">Please enter your name.</string>
+    <string name="toast_name_saved">Name saved.</string>
+    <string name="toast_name_failed">Could not save your name.</string>
+    <string name="toast_interests_saved">Interests saved.</string>
+    <string name="toast_login_again">Please log in again.</string>
+    <string name="toast_wrong_current_password">Your current password is wrong.</string>
+    <string name="toast_password_changed">Password changed.</string>
+    <string name="toast_password_failed">Could not change the password.</string>
+</resources>
