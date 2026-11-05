@@ -71,9 +71,9 @@ function addComment($config, $user, $postId)
 
     // The post must exist before a comment can be added to it.
     $postRef = getDatabase($config)->getReference('posts/' . $postId);
-    if (!$postRef->getSnapshot()->exists()) {
+    $post    = $postRef->getValue();      // the post (we need its author for the notification)
+    if (!is_array($post)) {
         sendError('That post does not exist.', 404);
-        $post = $postRef->getValue();
     }
 
     $data = readJsonBody();
@@ -95,10 +95,10 @@ function addComment($config, $user, $postId)
     $newRef = getDatabase($config)->getReference('comments/' . $postId)->push($comment);
     $comment['id'] = $newRef->getKey();
 
-        // Answer the app first, then send the notification
-        respondThenRun($comment, 201, function () use ($config, $post, $postId, $user, $authorName) {
-            notifyPostAuthor($config, $post, $postId, $user, $authorName);
-        });
+    // Answer the app first, then send the notification to the post's author
+    respondThenRun($comment, 201, function () use ($config, $post, $postId, $user, $authorName) {
+        notifyPostAuthor($config, $post, $postId, $user, $authorName);
+    });
 }
 
 // A Firebase push key looks like -NxAbCdEfGh12345.
