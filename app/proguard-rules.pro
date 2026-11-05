@@ -19,3 +19,14 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+# Keep the info Retrofit and Gson need at run time
+-keepattributes Signature
+-keepattributes *Annotation*
+
+# Our data classes (Gson reads their field names)
+-keep class com.example.sa_event_hub.** { *; }
+
+# Library warnings we can ignore
+-dontwarn okhttp3.**
+-dontwarn okio.**

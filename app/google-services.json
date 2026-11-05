@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "309050586592-c9509gkp7uclfccdhlvslhlocl8c5gih.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cybersquad.saeventhub",
+            "certificate_hash": "a326b1045b5a314445924b9fc4826034aea92864"
+          }
+        },
+        {
           "client_id": "309050586592-liufcpla1edq10485nvnerlufgn2qm51.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
