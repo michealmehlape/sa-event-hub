@@ -145,6 +145,13 @@ language is chosen in Settings and applied with `AppCompatDelegate.setApplicatio
   4. build the debug APK (`./gradlew assembleDebug`),
   5. upload the APK as a build artifact.
 
+- **Unit tests** (`app/src/test/java/com/example/sa_event_hub/`) cover:
+  - input validation rules and their translated messages,
+  - date formatting, including other languages,
+  - the Room mapping between events and saved rows.
+
+  Run them locally with `./gradlew test`
+
   
 
 ![GitHub Actions run](docs/actions-run.png)
@@ -156,14 +163,22 @@ language is chosen in Settings and applied with `AppCompatDelegate.setApplicatio
 - Release SHA-1 and SHA-256 fingerprints added to Firebase so Google sign-in works in the signed build.
 - Custom launcher icon and a separate white notification icon.
 
-**Evidence:** `docs/signed-apk.png`,
-`docs/app-on-phone.png`.
+**Evidence**
+
+| Signed release file | App running on the phone |
+|---|---|
+| <img src="docs/signed-apk.png" width="420" alt="Signed APK"> | <img src="docs/app-on-phone.png" width="240" alt="App running on the phone"> |
 
 ## 9. Screenshots
 
 
-`docs/home.png`, `docs/search.png`, `docs/saved-offline.png`, `docs/community.png`,
-`docs/profile.png`, `docs/language-settings.png`.
+| Home | Search | Saved (offline) |
+|---|---|---|
+| <img src="docs/home.png" width="240" alt="Home"> | <img src="docs/search.png" width="240" alt="Search"> | <img src="docs/saved-offline.png" width="240" alt="Saved events while offline"> |
+
+| Community | Profile | Language settings |
+|---|---|---|
+| <img src="docs/community.png" width="240" alt="Community"> | <img src="docs/profile.png" width="240" alt="Profile"> | <img src="docs/language-settings.png" width="240" alt="Language settings"> |
 
 ## 10. Release notes
 
